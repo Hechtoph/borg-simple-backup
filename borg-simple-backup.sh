@@ -58,7 +58,7 @@ touch $LOCKFILE
 
 ##DO BACKUP
 echo "$(date +"%Y-%m-%d-%H-%M-%S"):----RUNNING BACKUP JOB----" | tee -a $LOGFILE
-$BORGLOCATION create --info --compression $COMPRESSION --stats $REPOSITORY::$JOBNAME-$TIMESTAMP $MOUNTPATH 2>&1 >/dev/null | tee -a $LOGFILE
+$BORGLOCATION create --info --compression $COMPRESSION --stats -x $REPOSITORY::$JOBNAME-$TIMESTAMP $MOUNTPATH 2>&1 >/dev/null | tee -a $LOGFILE
 BORGERRORLEVEL=$PIPESTATUS
 if [ $BORGERRORLEVEL -gt 1 ]
 then
